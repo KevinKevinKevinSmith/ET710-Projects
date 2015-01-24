@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Web Form Project 9</title>
+
+</head>
+
+<body style="background-color: #CC9900">
+<br />
+<h1>Web Form Project 9</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>	
+<script src="./former.js">
+angular.module('Projecter', [])
+    .controller('FormController', ['$scope', function($scope) {
+		$scope.user = {name : 'guest'};
+		};
+	]);
+</script>
+
+<form name="Project" ng-submit="submit()" ng-controller="FormController">
+<h3>First and Last Name <input type="text" name="Name" ng-model="user.name"> </h3>
+<h3>Birthday (YYYY-MM-DD) <input type="date" ng-model="birthday"> </h3>
+<h3>Phone Number <input type="number" ng-model="num1" min="000" max="999"> 
+					<input type="number" ng-model="num2" min="000" max="999">
+					<input type="number" ng-model="num3" min="0000" max="9999"> </h3>
+<h3>Gender: Male <input type="radio" ng-model="gender" value="M"> Female <input type="radio" ng-model="gender" value="F"> </h3>
+
+<h3>Interests/Hobbies?</h3>
+<p>TV/Movies <input type="checkbox" ng-model="TV"></p>
+<p>Music <input type="checkbox" ng-model="music"></p>
+<p>Board/Video Games <input type="checkbox" ng-model="games"></p>
+<p>Books/Comics <input type="checkbox" ng-model="read"></p>
+<p>Crafts <input type="checkbox" ng-model="craft"></p>
+
+<h3>Cake or Death?</h3>
+<select ng-model="CoD">
+	<option>Cake</option>
+	<option>Death</option>
+</select>
+<br/>
+<br/>
+<h3><input type="submit"></h3>
+
+</form>
+<hr>
+
+Your name is: <tt>{{user.name}}<br/></tt>
+
+Your birthday is: {{Project.birthday}}<br/>
+Your phone number is: {{num1}}-{{num2}}-{{num3}}<br/>
+
+
+</body>
+
+</html>
