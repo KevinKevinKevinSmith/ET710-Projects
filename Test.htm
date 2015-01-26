@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="demoApp">
+
+<head>
+	<title></title>
+</head>
+
+<body style="background-color: #CC9900">	
+	<div class="container" data-ng-controller="SimpleController">
+		Name: 
+		<br/>
+		<input type="text" data-ng-model="name" />
+		<br/>
+		<ul>
+			<li data-ng-repeat = "cust in customers | filter:name">
+				{{cust.name}} - {{cust.city}}
+			</li>
+		</ul>
+	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular-route.min.js"></script>
+	<script>
+		var demoApp = angular.module('demoApp', ['ngRoute']);
+		
+		var controllers = {};
+		controllers.SimpleController = function ($scope) {
+			$scope.customers = [ 
+				{ name: "Dave Jones", city: "Phoenix" },
+				{ name: "Jamie Riley", city: "Atlanta"},
+				{ name: "Heedy Wahlin", city: "Chandler"},
+				{ name: "Thomas Winter", city: "Seattle"},
+				{ name: 'Johnny Boy', city: "Seattle"},
+				{ name: 'Sarah Girl', city: "Albany"}, 
+				{ name: 'Baby Kid', city: "Womb"}
+			];
+		};
+		
+		demoApp.controller(controllers);
+		
+	</script>
+</body>
+</html>
+
+<!--
+ng-init="names=['Johnny Boy', 'Sarah Girl', 'Baby Kid']">
+	<p>Name: <input type="text" ng-model="name" /></p>
+	<hr>
+	<p>Filer by name: {{name}}</p>
+	<p>And your friends are: </p>
+	<ul>
+		<li ng-repeat = "person in names | filter:name">
+			{{person}}
+		</li>
+	</ul>
+	<hr>
+	-->
